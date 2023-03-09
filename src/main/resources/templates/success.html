@@ -8,5 +8,24 @@
 </head>
 <body>
     <h1>Your submission was successful.</h1>
+
+    <div data-th-object="${order}">
+        <p>
+            Pizza Type:
+            <p data-th-text="*{pizzaType}"></p>
+        </p>
+        <br/>
+        <p>
+            Size:
+            <p data-th-text="*{size}"></p>
+        </p>
+        <br/>
+        <p>
+            Quantity :
+            <p data-th-text="*{quantity}"></p>
+        </p>
+        <br/>
+
+    </div>
 </body>
 </html>

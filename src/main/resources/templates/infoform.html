@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Delivery Details</title>
+</head>
+<body>
+    <h1>Order Delivery Details</h1>
+
+    <h1>Your first submission is successful</h1>
+
+    <form action="#"
+    data-th-action="@{/pizza/order}"
+    data-th-object="${delivery}" 
+    method = "POST">
+
+    <p>
+        <label>Name: </label>
+        <input type ="text" data-th-field="*{name}">
+        <span
+            class = "error"
+            data-th-if="${#fields.hasErrors('name')}"
+            data-th-errors="*{name}" >
+        </span>
+    </p>
+    <br/>
+
+    <p>
+        <label>Address: </label>
+        <input type ="text" data-th-field="*{address}">
+        <span
+            class = "error"
+            data-th-if="${#fields.hasErrors('address')}"
+            data-th-errors="*{address}" >
+        </span>
+    </p>
+    <br/>
+
+    <p>
+        <label>Phone: </label>
+        <input type ="text" data-th-field="*{phoneNumber}">
+        <span
+            class = "error"
+            data-th-if="${#fields.hasErrors('phoneNumber')}"
+            data-th-errors="*{phoneNumber}" >
+        </span>
+    </p>
+    <br/>
+
+    <p>
+        <label>Rush: </label>
+        <input type ="checkbox" data-th-field="*{rush}" value="true">
+        <span
+            class = "error"
+            data-th-if="${#fields.hasErrors('phoneNumber')}"
+            data-th-errors="*{phoneNumber}" >
+        </span>
+    </p>
+    <br/>
+
+    <p>
+        <label>Comments</label>
+        <input type ="textbox" data-th-field="*{comments}">
+    </p>
+    <br/>
+
+    <p>
+        <input type = "submit" value="Place  Order">&nbsp;
+        <input type = "submit" value="Cancel  Order">
+    </p>
+    
+    </form>
+
+
+</body>
+</html>

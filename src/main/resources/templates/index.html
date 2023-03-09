@@ -39,74 +39,74 @@ data-th-object="${order}"
 
 method = "POST">
 
+<!-- Pizza selection -->
     <p>
     <div class="container">
         <div class="row">
         <div class="col-lg-2">
             <img src="images/bella.jpg" alt="1" width="300" height="200">
             <label>Bella</label>
-            <input type="checkbox" th:field="*{name}" 
-            th:checked="*{name}" value="bella" />
+            <input type="checkbox" th:field="*{pizzaType}" value="bella" />
         </div>
 
         <div class="col-lg-2">
             <img src="images/margherita.jpg" alt="1" width="300" height="200">
             <label>Margherita</label>
-            <input type="checkbox" th:field="*{name}" 
-            th:checked="*{name}" value="margherita" />
+            <input type="checkbox" th:field="*{pizzaType}" value="margherita" />
         </div>  
         <div class="col-lg-2">
             <img src="images/marina.jpg" alt="1" width="300" height="200">
             <label>Marinara</label>
-            <input type="checkbox" th:field="*{name}" 
-            th:checked="*{name}" value="marinara" />
+            <input type="checkbox" th:field="*{pizzaType}" value="marinara" />
            
         </div>
         <div class="col-lg-2">
             <img src="images/spianata.jpg" alt="1" width="300" height="200">
             <label>Spianata Calabrese</label>
-            <input type="checkbox" th:field="*{name}" 
-            th:checked="*{name}" value="spianatacalabrese" />
-        
+            <input type="checkbox" th:field="*{pizzaType}" value="spianatacalabrese" />
         </div>
-
 
         <div class="col-lg-2">
             <img src="images/formaggio.jpg" alt="1" width="300" height="200">
             <label>Trio Formaggio</label>
-            <input type="checkbox" th:field="*{name}" 
-            th:checked="*{name}" value="trioformaggio" />
-       
+            <input type="checkbox" th:field="*{pizzaType}" value="trioformaggio" />
         </div>
+            <span
+            class = "error"
+            data-th-if="${#fields.hasErrors('pizzaType')}"
+            data-th-errors="*{pizzaType}" >
+            </span>
         </div>
     </div>
-
     </p>
     <br/>
 
+<!-- Size -->
     <p>
         <label>Size: </label>
         <select th:field="*{size}">
-            <option value="Small">Small</option>
-            <option value="Medium">Medium</option>
-            <option value="Large">Large</option>
+            <option value="">Select an option</option>
+            <option value="sm">Small</option>
+            <option value="md">Medium</option>
+            <option value="lg">Large</option>
         </select>
-        <!-- <span
+        <span
         class = "error"
-        data-th-if="${#fields.hasErrors('email')}"
-        data-th-errors="*{email}" >
-        </span> -->
+        data-th-if="${#fields.hasErrors('size')}"
+        data-th-errors="*{size}" >
+        </span>
     </p>
     <br/>
 
+<!-- Quantity -->
     <p>
     <label>Quantity: </label>
-    <input type ="text" data-th-field="*{phoneNumber}">
-    <!-- <span
+    <input type ="text" data-th-field="*{quantity}">
+    <span
         class = "error"
-        data-th-if="${#fields.hasErrors('phoneNumber')}"
-        data-th-errors="*{phoneNumber}" >
-    </span> -->
+        data-th-if="${#fields.hasErrors('quantity')}"
+        data-th-errors="*{quantity}" >
+    </span>
     </p>
     <br/>
   
@@ -115,8 +115,6 @@ method = "POST">
     </p>
 
 </form>
-
-
 
 
       <!-- Bootstrap - Javascript -->
