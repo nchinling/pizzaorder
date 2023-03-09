@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import jakarta.validation.Valid;
-// import sg.nus.iss.edu.pizzaorder.model.Order;
+import sg.nus.iss.edu.pizzaorder.model.Order;
 // import sg.nus.iss.edu.pizzaorder.service.OrderService;
 
 
@@ -23,7 +23,7 @@ public class PizzaOrderController {
     
     @GetMapping
     public String getMain(Model m){
-        // m.addAttribute("contact", new Contact());
+        m.addAttribute("order", new Order());
         return "index";
     }
 }

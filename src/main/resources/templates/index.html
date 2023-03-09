@@ -4,9 +4,117 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        .error{
+            color: red;
+        }
+
+    </style>
+
+      <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+
+  <!-- Font awesome -->
+  <script src="https://kit.fontawesome.com/181c7bc6bd.js" crossorigin="anonymous"></script>
+
+
+  <!-- Javascript -->
+  <script src="index.js" charset="utf-8"></script>
+
+
     <title>Home page</title>
 </head>
 <body>
-    <h1> This is the pizza home page.</h1>
+    <h1>Welcome to Ling's pizza</h1>
+
+    <h2> Select a pizza</h2>
+
+    <br/>
+
+<form action="#"
+data-th-action="@{/pizza}"
+data-th-object="${order}" 
+
+method = "POST">
+
+    <div class="container">
+        <div class="row">
+        <div class="col-lg-2">
+            <img src="images/bella.jpg" alt="1" width="300" height="200">
+            <input type ="checkbox" data-th:checked="*{name}">
+            <label>Bella</label>
+        </div>
+        <div class="col-lg-2">
+            <img src="images/margherita.jpg" alt="1" width="300" height="200">
+            <input type ="checkbox" data-th:checked="*{name}">
+            <label>Margherita</label>
+        </div>
+        <div class="col-lg-2">
+            <img src="images/marina.jpg" alt="1" width="300" height="200">
+            <input type ="checkbox" data-th:checked="*{name}">
+            <label>Marinara</label>
+        </div>
+        <div class="col-lg-2">
+            <img src="images/spianata.jpg" alt="1" width="300" height="200">
+            <input type ="checkbox" data-th:checked="*{name}">
+            <label>Spianata Calabrese</label>
+        </div>
+        <div class="col-lg-2">
+            <img src="images/formaggio.jpg" alt="1" width="300" height="200">
+            <input type ="checkbox" data-th:checked="*{name}">
+            <label>Trio Formaggio</label>
+        </div>
+        </div>
+    </div>
+
+    <!-- <input type ="text" data-th-field="*{name}"> -->
+    <span
+        class = "error"
+        data-th-if="${#fields.hasErrors('name')}"
+        data-th-errors="*{name}" >
+    </span>
+    </p>
+    <br/>
+
+    <p>
+        <label>Size: </label>
+        <select th:field="*{size}">
+            <option value="Small">Small</option>
+            <option value="Medium">Medium</option>
+            <option value="Large">Large</option>
+        </select>
+        <span
+        class = "error"
+        data-th-if="${#fields.hasErrors('email')}"
+        data-th-errors="*{email}" >
+    </span>
+    </p>
+    <br/>
+
+    <p>
+    <label>Quantity: </label>
+    <input type ="text" data-th-field="*{phoneNumber}">
+    <span
+        class = "error"
+        data-th-if="${#fields.hasErrors('phoneNumber')}"
+        data-th-errors="*{phoneNumber}" >
+    </span>
+    </p>
+    <br/>
+  
+    <p>
+    <input type = "submit" value="Next">
+    </p>
+
+</form>
+
+
+
+
+      <!-- Bootstrap - Javascript -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
 </body>
 </html>
