@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.security.SecureRandom;
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -16,9 +17,9 @@ import jakarta.validation.constraints.Size;
 
 public class Order implements Serializable {
     
-    @NotNull(message="Name cannot be null")
-    @Size(min = 3, max = 64, message = "Name must be between 3 and 64 characters")
     private String name;
+
+    private List<String> pizzaType;
 
     private String size;
 

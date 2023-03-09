@@ -21,9 +21,14 @@ import sg.nus.iss.edu.pizzaorder.model.Order;
 @RequestMapping(path="/")
 public class PizzaOrderController {
     
-    @GetMapping
+    @GetMapping(path="/")
     public String getMain(Model m){
         m.addAttribute("order", new Order());
         return "index";
+    }
+
+    @PostMapping(path="/pizza")
+    public String submit(Order order, Model m){
+        return "displayorder";
     }
 }

@@ -39,42 +39,48 @@ data-th-object="${order}"
 
 method = "POST">
 
+    <p>
     <div class="container">
         <div class="row">
         <div class="col-lg-2">
             <img src="images/bella.jpg" alt="1" width="300" height="200">
-            <input type ="checkbox" data-th:checked="*{name}">
             <label>Bella</label>
+            <input type="checkbox" th:field="*{name}" 
+            th:checked="*{name}" value="bella" />
         </div>
+
         <div class="col-lg-2">
             <img src="images/margherita.jpg" alt="1" width="300" height="200">
-            <input type ="checkbox" data-th:checked="*{name}">
             <label>Margherita</label>
-        </div>
+            <input type="checkbox" th:field="*{name}" 
+            th:checked="*{name}" value="margherita" />
+        </div>  
         <div class="col-lg-2">
             <img src="images/marina.jpg" alt="1" width="300" height="200">
-            <input type ="checkbox" data-th:checked="*{name}">
             <label>Marinara</label>
+            <input type="checkbox" th:field="*{name}" 
+            th:checked="*{name}" value="marinara" />
+           
         </div>
         <div class="col-lg-2">
             <img src="images/spianata.jpg" alt="1" width="300" height="200">
-            <input type ="checkbox" data-th:checked="*{name}">
             <label>Spianata Calabrese</label>
+            <input type="checkbox" th:field="*{name}" 
+            th:checked="*{name}" value="spianatacalabrese" />
+        
         </div>
+
+
         <div class="col-lg-2">
             <img src="images/formaggio.jpg" alt="1" width="300" height="200">
-            <input type ="checkbox" data-th:checked="*{name}">
             <label>Trio Formaggio</label>
+            <input type="checkbox" th:field="*{name}" 
+            th:checked="*{name}" value="trioformaggio" />
+       
         </div>
         </div>
     </div>
 
-    <!-- <input type ="text" data-th-field="*{name}"> -->
-    <span
-        class = "error"
-        data-th-if="${#fields.hasErrors('name')}"
-        data-th-errors="*{name}" >
-    </span>
     </p>
     <br/>
 
@@ -85,22 +91,22 @@ method = "POST">
             <option value="Medium">Medium</option>
             <option value="Large">Large</option>
         </select>
-        <span
+        <!-- <span
         class = "error"
         data-th-if="${#fields.hasErrors('email')}"
         data-th-errors="*{email}" >
-    </span>
+        </span> -->
     </p>
     <br/>
 
     <p>
     <label>Quantity: </label>
     <input type ="text" data-th-field="*{phoneNumber}">
-    <span
+    <!-- <span
         class = "error"
         data-th-if="${#fields.hasErrors('phoneNumber')}"
         data-th-errors="*{phoneNumber}" >
-    </span>
+    </span> -->
     </p>
     <br/>
   
