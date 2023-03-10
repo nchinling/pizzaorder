@@ -17,12 +17,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import jakarta.validation.Valid;
 import sg.nus.iss.edu.pizzaorder.model.DeliveryDetails;
 import sg.nus.iss.edu.pizzaorder.model.Order;
-// import sg.nus.iss.edu.pizzaorder.service.OrderService;
+import sg.nus.iss.edu.pizzaorder.service.OrderService;
 
 
 @Controller
 @RequestMapping
 public class PizzaOrderController {
+
+    @Autowired 
+    private OrderService orderService;
     
     @GetMapping(path="/")
     public String getMain(Model m){
@@ -36,8 +39,10 @@ public class PizzaOrderController {
             return "index";
         }
        
+        orderService.save(order);
         m.addAttribute("delivery", new DeliveryDetails());
         return "infoform";
+        // return "displayorder";
     }
 
     @PostMapping(path="/pizza/order")
@@ -48,6 +53,7 @@ public class PizzaOrderController {
             return "infoform";
         }
        
+
         m.addAttribute("delivery", delivery);
         return "orderconfirmation";
     }

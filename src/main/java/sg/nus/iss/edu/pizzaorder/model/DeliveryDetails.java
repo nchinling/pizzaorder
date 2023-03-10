@@ -18,8 +18,9 @@ public class DeliveryDetails implements Serializable {
     @Size(min = 3, message = "Minimum 3 characters")
     private String name;
 
-    @NotNull(message="Please provide an address")
+    @NotNull(message = "Please provide an address")
     @Size(min = 1, message = "Please provide an address")
+    @Size(min = 9, message = "Minimum of 9 characters")
     private String address;
 
     @NotNull(message="Phone number cannot be null")
