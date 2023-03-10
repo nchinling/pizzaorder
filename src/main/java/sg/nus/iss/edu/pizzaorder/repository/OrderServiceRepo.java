@@ -36,7 +36,7 @@ public class OrderServiceRepo {
     //find all contacts
     public List<DeliveryDetails> findAll(int startIndex){
         List<Object> fromOrderList = redisTemplate.opsForList()
-            .range(ORDER_LIST, startIndex, 10);
+            .range(ORDER_LIST, startIndex, 100);
 
         List<DeliveryDetails> orders = new ArrayList<>();
         List<Object> objects = redisTemplate.opsForHash().multiGet(ORDER_LIST + "_Map", fromOrderList);

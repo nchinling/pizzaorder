@@ -33,6 +33,8 @@ public class DeliveryDetails implements Serializable {
     String pizzaType;
     String quantity;
     String size;
+    
+    private double totalCost;
 
     String comments;
 
@@ -69,6 +71,8 @@ public class DeliveryDetails implements Serializable {
 
     public String getId() {return id;}
 
+    
+
     public void setId(String id) {this.id = id;}
 
     public String getName() {return name;}
@@ -103,6 +107,10 @@ public class DeliveryDetails implements Serializable {
 
     public String getSize() {return size;}
     public void setSize(String size) {this.size = size;}
+
+    public double getTotalCost() {return totalCost;}
+
+    public void setTotalCost(double totalCost) {this.totalCost = totalCost;}
     
 
     // private synchronized String generateId(int numOfChar){

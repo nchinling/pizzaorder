@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import ch.qos.logback.core.net.SyslogOutputStream;
 import jakarta.validation.Valid;
 import sg.nus.iss.edu.pizzaorder.model.DeliveryDetails;
 import sg.nus.iss.edu.pizzaorder.model.Order;
@@ -61,6 +62,9 @@ public class PizzaOrderController {
             return "infoform";
         }
        
+        double total = orderService.totalCost(delivery);
+        System.out.println("The total cost for the pizza is $" + total);
+        delivery.setTotalCost(total);
         orderService.save(delivery);
         m.addAttribute("delivery", delivery);
         return "orderconfirmation";
@@ -74,7 +78,7 @@ public class PizzaOrderController {
         return "displayorder";
     }
 
-    @GetMapping(path="/pizza/order/list")
+    @GetMapping(path="/pizza/orders/list")
     public String listAll(Model model, @RequestParam(defaultValue="0") Integer startIndex){
         List<DeliveryDetails> orders = orderService.findAll(startIndex);
         model.addAttribute("orders", orders);
