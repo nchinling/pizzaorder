@@ -45,7 +45,7 @@ public class PizzaOrderController {
         deliveryDetails.setSize(order.getSize());
         deliveryDetails.setQuantity(order.getQuantity());
        
-        orderService.save(order);
+        // orderService.save(order);
         m.addAttribute("delivery", deliveryDetails);
         return "infoform";
         // return "displayorder";
@@ -61,10 +61,24 @@ public class PizzaOrderController {
             return "infoform";
         }
        
-        // String idString = Long.toString(id);
-        // delivery.setId(idString);
+        orderService.save(delivery);
         m.addAttribute("delivery", delivery);
         return "orderconfirmation";
+    }
+
+    @GetMapping(path="/pizza/order/{id}")
+    public String getContactId(Model model, @PathVariable String id){
+        
+        DeliveryDetails order = orderService.findById(id);
+        model.addAttribute("order", order);
+        return "displayorder";
+    }
+
+    @GetMapping(path="/pizza/order/list")
+    public String listAll(Model model, @RequestParam(defaultValue="0") Integer startIndex){
+        List<DeliveryDetails> orders = orderService.findAll(startIndex);
+        model.addAttribute("orders", orders);
+        return "allorders";
     }
 
 }

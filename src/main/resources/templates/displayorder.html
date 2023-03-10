@@ -10,26 +10,57 @@
     <h1>Your order details</h1>
 
     <div data-th-object="${order}">
+        <h1>Delivery details</h1>
+
         <p>
-            Order ID:
-            <p data-th-text="*{id}"></p>
+            Order Number:
+            <span data-th-text="*{id}"></span>
         </p>
-        <br/>
-        
+
+        <p>
+            Name:
+            <span data-th-text="*{name}"></span>
+        </p>
+     
+        <p>
+            Phone Number: 
+            <span data-th-text="*{phoneNumber}"></span>
+        </p>
+   
+        <p>
+            Your order will be delivered to: 
+            <span data-th-text="*{address}"></span>
+        </p>
+
+
+        <p>
+            Rush:
+            <span data-th-text="*{rushCost}"></span>
+        </p>
+
+        <p>
+            Comments:
+            <span data-th-text="*{comments}"></span>
+        </p>
+
         <p>
             Pizza Type:
-            <p data-th-text="*{pizzaType}"></p>
+            <span data-th-text="*{pizzaType}"></span>
         </p>
-        <br/>
+
+
         <p>
             Size:
-            <p data-th-text="*{size}"></p>
+            <span data-th-text="*{size}"></span>
         </p>
-        <br/>
+
+
         <p>
-            Quantity :
-            <p data-th-text="*{quantity}"></p>
+            Quantity:
+            <span data-th-text="*{quantity}"></span>
         </p>
+
+    </div>
         <br/>
 
     </div>
