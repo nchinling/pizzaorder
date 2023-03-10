@@ -10,14 +10,6 @@
 <body>
     <h1>Delivery details</h1>
 
-    <!-- <div data-th-object="${order}">
-        <p>
-            Order Number:
-            <span data-th-text="*{id}"></span>
-        </p>
-
-    </div> -->
-
     <div data-th-object="${delivery}">
         <p>
             Order Number:
@@ -49,6 +41,25 @@
             Comments:
             <span data-th-text="*{comments}"></span>
         </p>
+
+        <p>
+            Pizza Type:
+            <span data-th-text="*{pizzaType}"></span>
+        </p>
+
+
+        <p>
+            Size:
+            <span data-th-text="*{size}"></span>
+        </p>
+
+
+        <p>
+            Quantity:
+            <span data-th-text="*{quantity}"></span>
+        </p>
+
+
 
     </div>
 

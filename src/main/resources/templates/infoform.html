@@ -21,6 +21,11 @@
     data-th-action="@{/pizza/order}"
     data-th-object="${delivery}" 
     method = "POST">
+    
+    <input type="hidden" th:field="*{id}" th:value="${id}"/>
+    <input type="hidden" th:field="*{pizzaType}" th:value="${pizzaType}"/>
+    <input type="hidden" th:field="*{size}" th:value="${size}"/>
+    <input type="hidden" th:field="*{quantity}" th:value="${quantity}"/>
 
     <p>
         <label>Name: </label>

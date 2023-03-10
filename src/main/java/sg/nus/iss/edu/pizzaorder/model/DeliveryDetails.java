@@ -30,16 +30,24 @@ public class DeliveryDetails implements Serializable {
     private boolean rush = false;
     private String rushCost;
 
+    String pizzaType;
+    String quantity;
+    String size;
+
     String comments;
 
 
     public DeliveryDetails() {
-        this.id = generateId();
+        // this.id = generateId();
+    }
+
+    public DeliveryDetails(String id) {
+        this.id = id;
     }
 
     public DeliveryDetails(String name, String address, String phoneNumber,
     boolean rush, String comments) {
-        this.id = generateId();
+        // this.id = generateId();
         this.name = name;
         this.address = address;
         this.phoneNumber = phoneNumber;
@@ -61,9 +69,7 @@ public class DeliveryDetails implements Serializable {
 
     public String getId() {return id;}
 
-    public void setId(String id) {
-        this.id = id;
-    }
+    public void setId(String id) {this.id = id;}
 
     public String getName() {return name;}
     public void setName(String name) {this.name = name;}
@@ -88,6 +94,15 @@ public class DeliveryDetails implements Serializable {
 
     public String getRushCost() {return rushCost;}
     public void setRushCost(String rushCost) {this.rushCost =rushCost;}
+
+    public String getPizzaType() {return pizzaType;}
+    public void setPizzaType(String pizzaType) {this.pizzaType = pizzaType;}
+
+    public String getQuantity() {return quantity;}
+    public void setQuantity(String quantity) {this.quantity = quantity;}
+
+    public String getSize() {return size;}
+    public void setSize(String size) {this.size = size;}
     
 
     // private synchronized String generateId(int numOfChar){
@@ -101,10 +116,12 @@ public class DeliveryDetails implements Serializable {
     // }
 
     //using UUID approach
-    private synchronized String generateId(){
-        UUID uuid = UUID.randomUUID();
-        String uuidString = uuid.toString().substring(0, 8);
-        return uuidString;
-    }
+    // private synchronized String generateId(){
+    //     UUID uuid = UUID.randomUUID();
+    //     String uuidString = uuid.toString().substring(0, 8);
+    //     return uuidString;
+    // }
+
+    
 
 }

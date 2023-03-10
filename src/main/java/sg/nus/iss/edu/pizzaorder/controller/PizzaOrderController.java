@@ -38,11 +38,19 @@ public class PizzaOrderController {
         if(binding.hasErrors()){
             return "index";
         }
+
+        DeliveryDetails deliveryDetails = new DeliveryDetails();
+        deliveryDetails.setId(order.getId());
+        deliveryDetails.setPizzaType(order.getPizzaType());
+        deliveryDetails.setSize(order.getSize());
+        deliveryDetails.setQuantity(order.getQuantity());
        
         orderService.save(order);
-        m.addAttribute("delivery", new DeliveryDetails());
+        m.addAttribute("delivery", deliveryDetails);
         return "infoform";
         // return "displayorder";
+        // return "delidis";
+        
     }
 
     @PostMapping(path="/pizza/order")
@@ -53,7 +61,8 @@ public class PizzaOrderController {
             return "infoform";
         }
        
-
+        // String idString = Long.toString(id);
+        // delivery.setId(idString);
         m.addAttribute("delivery", delivery);
         return "orderconfirmation";
     }
