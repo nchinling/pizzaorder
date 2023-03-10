@@ -6,6 +6,8 @@ import java.security.SecureRandom;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
+import java.util.UUID;
+
 
 public class DeliveryDetails implements Serializable {
     
@@ -16,7 +18,8 @@ public class DeliveryDetails implements Serializable {
     @Size(min = 3, message = "Minimum 3 characters")
     private String name;
 
-    @NotNull(message = "Please provide an address")
+    @NotNull(message="Please provide an address")
+    @Size(min = 1, message = "Please provide an address")
     private String address;
 
     @NotNull(message="Phone number cannot be null")
@@ -24,24 +27,25 @@ public class DeliveryDetails implements Serializable {
     private String phoneNumber;
 
     private boolean rush = false;
-    private String rushCost ="";
+    private String rushCost;
 
-    String comments = "";
+    String comments;
 
 
     public DeliveryDetails() {
-        this.id = generateId(8);
+        this.id = generateId();
     }
 
     public DeliveryDetails(String name, String address, String phoneNumber,
     boolean rush, String comments) {
-        this.id = generateId(8);
+        this.id = generateId();
         this.name = name;
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.rush = rush;
         this.comments = comments;
     }
+
 
     public DeliveryDetails(String id, String name, String address, String phoneNumber,
             boolean rush, String comments) {
@@ -52,6 +56,7 @@ public class DeliveryDetails implements Serializable {
         this.rush = rush;
         this.comments = comments;
     }
+
 
     public String getId() {return id;}
 
@@ -69,26 +74,36 @@ public class DeliveryDetails implements Serializable {
     public void setPhoneNumber(String phoneNumber) {this.phoneNumber = phoneNumber;}
 
     public boolean isRush() {return rush;}
-    public void setRush(boolean rush) {this.rush = rush;}
+    public void setRush(boolean rush) {
+        this.rush = rush;
+        String surcharge = "$2";
+        if (this.rush == true){
+            this.rushCost = surcharge;
+        }
+    }
 
     public String getComments() {return comments;}
     public void setComments(String comments) {this.comments = comments;}
 
     public String getRushCost() {return rushCost;}
-
-    public void setRushCost(String rushCost) {
-        this.rushCost = rushCost;
-    }
+    public void setRushCost(String rushCost) {this.rushCost =rushCost;}
     
 
-    private synchronized String generateId(int numOfChar){
-        SecureRandom sr = new SecureRandom();
-        StringBuilder sb = new StringBuilder();
-        while(sb.length() < numOfChar) {
-            sb.append(Integer.toHexString(sr.nextInt()));
-        }
+    // private synchronized String generateId(int numOfChar){
+    //     SecureRandom sr = new SecureRandom();
+    //     StringBuilder sb = new StringBuilder();
+    //     while(sb.length() < numOfChar) {
+    //         sb.append(Integer.toHexString(sr.nextInt()));
+    //     }
         
-        return sb.toString().substring(0, numOfChar);
+    //     return sb.toString().substring(0, numOfChar);
+    // }
+
+    //using UUID approach
+    private synchronized String generateId(){
+        UUID uuid = UUID.randomUUID();
+        String uuidString = uuid.toString().substring(0, 8);
+        return uuidString;
     }
 
 }
